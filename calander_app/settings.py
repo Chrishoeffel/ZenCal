@@ -1,5 +1,5 @@
 import os
-import dj_database_url
+# import dj_database_url
 """
 Django settings for calander_app project.
 
@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'zencal',
     }
 }
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -158,3 +158,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     "http://127.0.0.1:3000",
 # ]
 CORS_ALLOW_ALL_ORIGINS: True
+
+MIDDLEWARE_CLASSES = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
