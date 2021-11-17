@@ -1,3 +1,3 @@
-web: gunicorn zencal.wsgi
+web: gunicorn calander_app.wsgi
 
 
