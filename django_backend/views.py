@@ -59,3 +59,14 @@ def getEvent(request, pk):
     events = Calendar_Event.objects.get(id=pk)
     serializer = EventSerializer(events, many=False)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateEvent(request, pk):
+    data = request.data 
+    event = Calendar_Event.objects.get(id=pk)
+    serializer = EventSerializer(instance=event, data=data)
+    
+    if serializer.is_valid():
+        serializer.save()
+        
+    return Response(serializer.data)
