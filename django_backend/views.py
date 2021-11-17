@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -5,6 +6,11 @@ from .models import Calendar_Event
 from .serializers import EventSerializer
 
 # Create your views here.
+def index(request):
+    r = requests.get('http://httpbin.org/status/418')
+    print(r.text)
+    return HttpResponse('<pre>' + r.text + '</pre>')
+
 
 @api_view(['GET'])
 def getRoutes(request):
